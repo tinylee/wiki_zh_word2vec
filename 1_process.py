@@ -17,7 +17,7 @@ if __name__ == '__main__':
     logger.info("running %s" % ' '.join(sys.argv))
 
     if len(sys.argv) < 3:
-        print globals()['__doc__'] % locals()
+        # print(globals()['__doc__'] % locals())
         sys.exit(1)
 
     inp, outp = sys.argv[1:3]
@@ -34,7 +34,3 @@ if __name__ == '__main__':
 
     output.close()
     logger.info("Finished Saved "+str(i)+" articles.")
-    
-
-
-

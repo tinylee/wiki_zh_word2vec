@@ -4,19 +4,20 @@
 
 import warnings
 warnings.filterwarnings(action='ignore', category=UserWarning, module='gensim')# 忽略警告
-import sys  
-reload(sys)  
-sys.setdefaultencoding('utf8')
+import sys
+import os
+# reload(sys)  
+# sys.setdefaultencoding('utf8')
 import gensim
 
 
 if __name__ == '__main__':
-    fdir = '/Users/sy/Desktop/pyRoot/wiki_zh_vec/'
-    model = gensim.models.Word2Vec.load(fdir + 'wiki.zh.text.model')
+    fdir = os.path.dirname(os.path.realpath(__file__))
+    model = gensim.models.Word2Vec.load(fdir + '/wiki.zh.text.model')
 
-    word = model.most_similar(u"足球")
+    word = model.most_similar("台湾")
     for t in word:
-        print t[0],t[1]
+        print(t[0],t[1])
 
     '''
     word = model.most_similar(positive=[u'皇上',u'国王'],negative=[u'皇后'])
