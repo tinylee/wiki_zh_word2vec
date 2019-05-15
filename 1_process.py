@@ -24,7 +24,7 @@ if __name__ == '__main__':
     space = " "
     i = 0
 
-    output = open(outp, 'w')
+    output = open(outp, 'w', encoding='utf-8')
     wiki =WikiCorpus(inp, lemmatize=False, dictionary=[])#gensim里的维基百科处理类WikiCorpus
     for text in wiki.get_texts():#通过get_texts将维基里的每篇文章转换位1行text文本，并且去掉了标点符号等内容
         output.write(space.join(text) + "\n")
